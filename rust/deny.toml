@@ -57,7 +57,7 @@ notice = "warn"
 # * Medium - CVSS Score 4.0 - 6.9
 # * High - CVSS Score 7.0 - 8.9
 # * Critical - CVSS Score 9.0 - 10.0
-#severity-threshold =
+severity-threshold = "High"
 
 # This section is considered when running `cargo deny check licenses`
 # More documentation for the licenses section can be found here:
@@ -110,6 +110,7 @@ exceptions = [
     # included in the application. We do not distribute those data files so
     # this is not a problem for us. See https://github.com/dtolnay/unicode-ident/pull/9/files
     { allow = ["Unicode-DFS-2016"], name = "unicode-ident", version = "*"},
+    { allow = ["MPL-2.0"], name = "webpki-roots", version = "*"},
 ]
 
 # Some crates don't have (easily) machine readable licensing information,
