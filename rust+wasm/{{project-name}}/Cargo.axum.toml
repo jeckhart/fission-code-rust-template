@@ -46,7 +46,7 @@ axum-tracing-opentelemetry = { version = "0.19" }
 base64 = "0.22"
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
 config = "0.14"
-console-subscriber = { version = "0.1", default-features = false, features = [ "parking_lot" ], optional = true }
+console-subscriber = { version = "0.3", default-features = false, features = [ "parking_lot" ], optional = true }
 const_format = "0.2"
 futures = "0.3"
 headers = "0.4"
@@ -75,11 +75,11 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 serde_path_to_error = "0.1"
 serde_with = "3.0"
-sysinfo = "0.28"
+sysinfo = "0.30"
 task-local-extensions = "0.1"
 thiserror = "1.0"
 time = { version = "0.3", features = ["serde-well-known", "serde-human-readable"] }
-tokio = { version = "1.26", features = ["full", "parking_lot"] }
+tokio = { version = "1.38", features = ["full", "parking_lot"] }
 ## Tied to opentelemetry-otlp dependency
 tonic = { version = "0.11" }
 tower = "0.4"
