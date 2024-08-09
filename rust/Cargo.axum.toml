@@ -111,6 +111,7 @@ ansi-logs = ["ansi_term"]
 console = ["console-subscriber"]
 default = []{% if bench %}
 test_utils = ["proptest"]{% endif %}
+tokio_unstable = []
 
 [package.metadata.docs.rs]
 all-features = true
