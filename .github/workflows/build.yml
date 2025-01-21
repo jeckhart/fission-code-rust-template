@@ -2,7 +2,7 @@ name: 🏪 Build Template
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 10 1-7 * 4'
 
   push:
     branches: [ main ]
