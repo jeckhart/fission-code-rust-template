@@ -439,7 +439,7 @@ conditions.
 [prom]: https://prometheus.io/
 [proptest]: https://github.com/proptest-rs/proptest
 [release-please]: https://github.com/googleapis/release-please
-[release-please-action]: https://github.com/google-github-actions/release-please-action
+[release-please-action]: https://github.com/googleapis/release-please-action
 [reqwest]: https://github.com/seanmonstar/reqwest
 [reqwest-middleware]: https://github.com/TrueLayer/reqwest-middleware
 [rust]: https://www.rust-lang.org/
