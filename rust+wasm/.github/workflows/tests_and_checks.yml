@@ -35,12 +35,14 @@ jobs:
       - name: Cache Project
         uses: Swatinem/rust-cache@v2
 
-      # Widely adopted suite of Rust-specific boilerplate actions, especially
-      # toolchain/cargo use: https://actions-rs.github.io/
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
+      - name: Install Stable Cargo Toolchain (ensure we can support rust2024)
+        uses: dtolnay/rust-toolchain@stable
         with:
-          override: true
+          components: cargo
+
+      - name: Install Rust Toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
           components: rustfmt, clippy
           toolchain: {{ "${{ matrix.rust-toolchain " }}}}
 
@@ -104,10 +106,14 @@ jobs:
       - name: Cache Project
         uses: Swatinem/rust-cache@v2
 
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
+      - name: Install Stable Cargo Toolchain (ensure we can support rust2024)
+        uses: dtolnay/rust-toolchain@stable
         with:
-          override: true
+          components: cargo
+
+      - name: Install Rust Toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
           toolchain: {{ "${{ matrix.rust-toolchain " }}}}
 
       - name: Run Tests
@@ -141,10 +147,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Rust Headless Browser Tests
         run: wasm-pack test --headless --{{ "${{ matrix.browser " }}}}{% else %}
@@ -168,10 +171,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Rust Headless Browser Tests
         run: wasm-pack test --node{% endif %}

@@ -130,18 +130,14 @@ jobs:
           template_values_file: .github/workflows/template_values.toml
           other: "--${{ matrix.crate_type }}"
 
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
+      - name: Install Stable Cargo Toolchain (ensure we can support rust2024)
+        uses: dtolnay/rust-toolchain@stable
         with:
-          override: true
-          profile: minimal
-          toolchain: stable
+          components: cargo
 
       - name: Install Rust-Nighly Toolchain
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@master
         with:
-          override: true
-          profile: minimal
           components: rustfmt
           toolchain: nightly
 
@@ -211,18 +207,14 @@ jobs:
           template_values_file: .github/workflows/template_values.toml
           other: "--bin -d axum=true"
 
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
+      - name: Install Stable Cargo Toolchain (ensure we can support rust2024)
+        uses: dtolnay/rust-toolchain@stable
         with:
-          override: true
-          profile: minimal
-          toolchain: stable
+          components: cargo
 
       - name: Install Rust-Nighly Toolchain
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@master
         with:
-          override: true
-          profile: minimal
           components: rustfmt
           toolchain: nightly
 
@@ -281,10 +273,7 @@ jobs:
           other: "--${{ matrix.crate_type }}"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Tests
         run: |
@@ -316,10 +305,7 @@ jobs:
           other: "--bin -d axum=true"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Tests
         run: |
@@ -351,10 +337,7 @@ jobs:
           other: "--${{ matrix.crate_type }}"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
@@ -391,10 +374,7 @@ jobs:
           other: "--bin -d axum=true"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
@@ -434,10 +414,7 @@ jobs:
           other: "--${{ matrix.crate_type }}"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Benchmark - Rust Template
         if: ${{ matrix.templates == 'rust' }}
@@ -483,10 +460,7 @@ jobs:
           other: "--bin -d axum=true"
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Benchmark - Rust Template
         if: ${{ matrix.templates == 'rust' }}
@@ -683,10 +657,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run Examples
         shell: bash
